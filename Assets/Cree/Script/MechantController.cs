@@ -8,6 +8,9 @@ using UnityEngine.UIElements;
 
 public class MechantController : MonoBehaviour
 {
+    [SerializeField]
+    private float vie;
+
     private List<Transform> positions = new List<Transform>();
     private int currentPos;
     private Transform startPos;
@@ -40,7 +43,6 @@ public class MechantController : MonoBehaviour
             {
                 posParent = _trans.gameObject;
             }
-            Debug.Log(_trans.name);
         }
         foreach(Transform _pos in posParent.GetComponentsInChildren<Transform>())
         {
@@ -53,6 +55,12 @@ public class MechantController : MonoBehaviour
 
         gameObject.transform.position = startPos.position;
         objectif = positions[0].transform;
+    }
+
+    public void DestroyMechant()
+    {
+        Destroy(gameObject);
+        Debug.Log("allo3");
     }
 
     private void NewObjectif()
