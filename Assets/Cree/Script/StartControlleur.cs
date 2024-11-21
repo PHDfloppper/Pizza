@@ -7,6 +7,8 @@ public class StartControlleur : MonoBehaviour
 
     [SerializeField]
     private GameObject[] mechants;
+    [SerializeField]
+    private float intervalSpawn;
 
     void Start()
     {
@@ -25,7 +27,7 @@ public class StartControlleur : MonoBehaviour
                 Instantiate(mechant, transform.position, quaternion.identity); //quaternion.identity = pas de rotation source: https://docs.unity3d.com/ScriptReference/Quaternion-identity.html
 
                 // Attendre 1 seconde avant de générer la prochaine instance
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(intervalSpawn);
             }
         }
     }
