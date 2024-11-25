@@ -71,5 +71,26 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 88f55bf9fc1e90b47bc713ff81084d2a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2078996274331311555}
   m_SourcePrefab: {fileID: 100100000, guid: 88f55bf9fc1e90b47bc713ff81084d2a, type: 3}
+--- !u!1 &6644702414059433131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 88f55bf9fc1e90b47bc713ff81084d2a, type: 3}
+  m_PrefabInstance: {fileID: 5834361030599004666}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2078996274331311555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6644702414059433131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c109516c485313b49a58741d3cdef089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pepperonPrefab: {fileID: 1446401932705979367, guid: 201c1b46d9ea7834fbe84e0fd76be51c, type: 3}

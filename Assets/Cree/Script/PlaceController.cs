@@ -27,6 +27,6 @@ public class PlaceController : MonoBehaviour
         var hudTour = hudToursInst.GetComponent<HUDTourController>();
         placerTour.RemoveAllListeners();
         placerTour.AddListener(hudTour.GetPosition);
-        placerTour.Invoke(currentPosition);
+        placerTour?.Invoke(currentPosition);
     }
 }

@@ -11,6 +11,9 @@ public class MechantController : MonoBehaviour
     [SerializeField]
     private float vie;
 
+    [SerializeField]
+    private float valeur;
+
     private List<Transform> positions = new List<Transform>();
     private int currentPos;
     private Transform startPos;
@@ -61,6 +64,16 @@ public class MechantController : MonoBehaviour
     {
         Destroy(gameObject);
         Debug.Log("allo3");
+    }
+
+    public void BaisserVie()
+    {
+        vie = -1;
+        if(vie <= 0)
+        {
+            MainController.AjouterPoint(valeur);
+            Destroy(gameObject);
+        }
     }
 
     private void NewObjectif()
