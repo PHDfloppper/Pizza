@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vitesse: 100
+  degat: 1
 --- !u!64 &6550496871422659811
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -7,8 +7,10 @@ public class PepperoniControlelr : MonoBehaviour
 {
     [SerializeField]
     private float vitesse;
+    [SerializeField]
+    private float degat;
 
-    private UnityEvent attaqueMechant = new UnityEvent();
+    private UnityEvent<float> attaqueMechant = new UnityEvent<float>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,7 +24,7 @@ public class PepperoniControlelr : MonoBehaviour
         {
             attaqueMechant.RemoveAllListeners();
             attaqueMechant.AddListener(mechant.BaisserVie);
-            attaqueMechant?.Invoke();
+            attaqueMechant?.Invoke(degat);
             Destroy(gameObject);
         }
     }

@@ -9,7 +9,6 @@ public class HUDTourController : MonoBehaviour
     public void GetPosition(Vector3 pos)
     {
         position = pos;
-        Debug.Log(pos);
     }
 
     public void Tour0()

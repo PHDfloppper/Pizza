@@ -10,6 +10,7 @@ public class EndController : MonoBehaviour
         var mechant = other.gameObject.GetComponent<MechantController>();
         if(mechant != null)
         {
+            MainController.ModifierVie(-1f);
             destroy.RemoveAllListeners();
             destroy.AddListener(mechant.DestroyMechant);
             destroy?.Invoke();

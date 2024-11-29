@@ -63,15 +63,14 @@ public class MechantController : MonoBehaviour
     public void DestroyMechant()
     {
         Destroy(gameObject);
-        Debug.Log("allo3");
     }
 
-    public void BaisserVie()
+    public void BaisserVie(float degat)
     {
-        vie = -1;
+        vie -= degat;
         if(vie <= 0)
         {
-            MainController.AjouterPoint(valeur);
+            MainController.ModifierPoint(valeur);
             Destroy(gameObject);
         }
     }
@@ -100,6 +99,5 @@ public class MechantController : MonoBehaviour
         {
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, objectif.position, vitesse * Time.deltaTime); //source: https://docs.unity3d.com/ScriptReference/Vector3.MoveTowards.html
         }
-
     }
 }
