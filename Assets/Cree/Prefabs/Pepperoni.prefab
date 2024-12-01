@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a243d879363aa45aa07dd17ea7a158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vitesse: 100
+  vitesse: 80
   degat: 1
 --- !u!64 &6550496871422659811
 MeshCollider:

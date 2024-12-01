@@ -4049,7 +4049,9 @@ MonoBehaviour:
     ajouter.\n\xC9videment, il faut avoir assez d'argent.\n\nJ'ai ajout\xE9 un cheat
     pour s'ajouter de l'argent comme on veut car j'ai pas r\xE9ussi \xE0 bien \"balance\"
     le jeu donc si trop difficle, pour les tests, on peut s'ajouter de l'argent comme
-    on veut."
+    on veut.\n\nles tours:\npizza: cadence de tire normal, d\xE9gats normaux\nfrites:
+    haute cadence de tire, d\xE9gats minimal\nsoda: cadence de tire minime, haut
+    en d\xE9gats"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

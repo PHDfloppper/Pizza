@@ -31,6 +31,31 @@ public class HUDTourController : MonoBehaviour
         }
     }
 
+    public void Tour1()
+    {
+        if (MainController.points >= 150)
+        {
+            MainController.ModifierPoint(-150);
+            toursPrefab[1] = Instantiate(toursPrefab[1], position, Quaternion.identity);
+            toursPrefab[1].transform.SetParent(null, false);
+            MainController.tours.Add(toursPrefab[1]);
+            menuAnimator.SetTrigger("FermtureTrigger");
+        }
+    }
+
+    public void Tour2()
+    {
+        if (MainController.points >= 250)
+        {
+            MainController.ModifierPoint(-250);
+            toursPrefab[2] = Instantiate(toursPrefab[2], position, Quaternion.identity);
+            toursPrefab[2].transform.SetParent(null, false);
+            MainController.tours.Add(toursPrefab[2]);
+            menuAnimator.SetTrigger("FermtureTrigger");
+        }
+    }
+
+
     private void Fermer()
     {
         menuAnimator.SetTrigger("FermtureTrigger");
