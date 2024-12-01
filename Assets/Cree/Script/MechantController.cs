@@ -30,7 +30,7 @@ public class MechantController : MonoBehaviour
         currentPos = 0;
 
         //il doit surment avoir une meilleur façon de faire ça mais ça marche, faut juste que les maps soient tous fait de la même manière
-        positionsGO = GameObject.Find("Carte/Positions");
+        positionsGO = transform.parent.parent.Find("Positions").gameObject;
 
         foreach (Transform _trans in positionsGO.GetComponentInChildren<Transform>())
         {

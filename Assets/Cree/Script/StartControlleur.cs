@@ -20,13 +20,11 @@ public class StartControlleur : MonoBehaviour
         //StartCoroutine(GenererMechants());
         //part d'une position de tour, recule de deux parents pour chercher le gameObject Machant dans Carte
         mechantParent = transform.parent.parent.Find("Mechant"); //j'aime pas cette manière de faire mais en attendant de faire des recherches, je vais utiliser ça
-        Debug.Log(mechantParent);
 
     }
 
     public IEnumerator GenererMechants(float nombreInstanceParMechant)
     {
-        Debug.Log("coroutine appelé");
         // Pour chaque méchant dans le tableau
         foreach (GameObject mechant in mechants)
         {

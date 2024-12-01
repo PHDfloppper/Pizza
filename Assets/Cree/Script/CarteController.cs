@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class CarteController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject prochaineCarte;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void ProchaineCarte()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        prochaineCarte.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

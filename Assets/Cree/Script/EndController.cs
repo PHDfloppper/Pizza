@@ -11,6 +11,10 @@ public class EndController : MonoBehaviour
         if(mechant != null)
         {
             MainController.ModifierVie(-1f);
+            if(MainController.vie <= 0)
+            {
+                MainController.NextCarte();
+            }
             destroy.RemoveAllListeners();
             destroy.AddListener(mechant.DestroyMechant);
             destroy?.Invoke();

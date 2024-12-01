@@ -11,10 +11,22 @@ public class PizzaController : MonoBehaviour
     private float cadenceSecondes;
 
     private bool mechantPresent;
+
+    [SerializeField]
+    private AudioSource lancerSon;
+
+    public enum PepperoniState
+    {
+        Waiting,     // En attente d'un ennemi.
+        Generating,  // Génération du pepperoni.
+        Completed    // Génération terminée.
+    }
+    private PepperoniState currentState;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         mechantPresent = false;
+        currentState = PepperoniState.Waiting;
     }
 
     private IEnumerator GenererPepperon()
@@ -22,18 +34,40 @@ public class PizzaController : MonoBehaviour
         while (!MainController.MechantVide())
         {
             GameObject pepperon = Instantiate(pepperonPrefab, transform.position, quaternion.identity, gameObject.transform);
+            lancerSon.Play();
             yield return new WaitForSeconds(cadenceSecondes);
         }
-        mechantPresent = false;
+        currentState = PepperoniState.Waiting;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!MainController.MechantVide() && !mechantPresent)
+        //if (!MainController.MechantVide() && !mechantPresent)
+        //{
+        //    mechantPresent = true;
+        //    StartCoroutine(GenererPepperon());
+        //}
+        if(MainController.manche == 3)
         {
-            mechantPresent = true;
-            StartCoroutine(GenererPepperon());
+            currentState = PepperoniState.Completed;
+        }
+        switch (currentState)
+        {
+            case PepperoniState.Waiting:
+                if (!MainController.MechantVide())
+                {
+                    currentState = PepperoniState.Generating;
+                    StartCoroutine(GenererPepperon());
+                }
+                break;
+
+            case PepperoniState.Generating:
+                break;
+
+            case PepperoniState.Completed:
+                Destroy(gameObject);
+                break;
         }
     }
 }
