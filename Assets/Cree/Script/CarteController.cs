@@ -1,10 +1,17 @@
 using UnityEngine;
 
+/// <summary>
+/// script utilisé sur les "Carte"
+/// </summary>
 public class CarteController : MonoBehaviour
 {
+    //Gameobject contenant la prochaine Carte
     [SerializeField]
     private GameObject prochaineCarte;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    /// <summary>
+    /// sert à switchet de Carte quand le joueur fini la Carte actuelle
+    /// </summary>
     public void ProchaineCarte()
     {
         prochaineCarte.SetActive(true);

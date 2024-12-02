@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class HUDTourController : MonoBehaviour
 {
+    //position où on va ajouter une tour
     private Vector3 position;
+    //contient les prefabs de tours
     [SerializeField]
     private GameObject[] toursPrefab;
-
+    //contient l'Animator des animations du HUDTour
     private Animator menuAnimator;
 
     void Start()
@@ -14,11 +16,18 @@ public class HUDTourController : MonoBehaviour
         menuAnimator = gameObject.GetComponent<Animator>();
         menuAnimator.SetTrigger("OuvertureTrigger");
     }
+    /// <summary>
+    /// obtient la position de la place là où on veut mettre la tour
+    /// </summary>
+    /// <param name="pos"></param>
     public void GetPosition(Vector3 pos)
     {
         position = pos;
     }
 
+    /// <summary>
+    /// ajouter la tour 0 (dans ce cas-ci, la pizza)
+    /// </summary>
     public void Tour0()
     {
         if (MainController.points >= 200)
@@ -31,6 +40,9 @@ public class HUDTourController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ajouter la tour 1 (dans ce cas-ci, les frites)
+    /// </summary>
     public void Tour1()
     {
         if (MainController.points >= 150)
@@ -43,6 +55,9 @@ public class HUDTourController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ajouter la tour 2 (dans ce cas-ci, le soda)
+    /// </summary>
     public void Tour2()
     {
         if (MainController.points >= 250)
@@ -55,12 +70,17 @@ public class HUDTourController : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// ferme le hud de tour
+    /// </summary>
     private void Fermer()
     {
         menuAnimator.SetTrigger("FermtureTrigger");
     }
 
+    /// <summary>
+    /// supprime le hud de tour
+    /// </summary>
     public void Detruire()
     {
         Destroy(gameObject);

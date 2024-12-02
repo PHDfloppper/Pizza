@@ -5,11 +5,13 @@ using UnityEngine.Events;
 
 public class PepperoniControlelr : MonoBehaviour
 {
+    //vitesse de déplacement du projectile
     [SerializeField]
     private float vitesse;
+    //dégat infligé par le projectile
     [SerializeField]
     private float degat;
-
+    //unityevent qui appel BaisserVie pour baisser la vie du méchant
     private UnityEvent<float> attaqueMechant = new UnityEvent<float>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,6 +19,10 @@ public class PepperoniControlelr : MonoBehaviour
     {
 
     }
+    /// <summary>
+    /// se déclanche quand le projectile entre en collision avec un méchant
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         var mechant = other.gameObject.GetComponent<MechantController>();

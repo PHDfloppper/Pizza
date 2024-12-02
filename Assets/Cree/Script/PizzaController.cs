@@ -4,31 +4,31 @@ using System.Collections;
 
 public class PizzaController : MonoBehaviour
 {
+    //prefab du projectile
     [SerializeField]
     private GameObject pepperonPrefab;
-
+    //cadence de tire de la tour
     [SerializeField]
     private float cadenceSecondes;
-
-    private bool mechantPresent;
-
+    //son de tire
     [SerializeField]
     private AudioSource lancerSon;
 
+    //machine à état qui indique l'état du projectile
     public enum PepperoniState
     {
         Waiting,     // En attente d'un ennemi.
-        Generating,  // Génération du pepperoni.
-        Completed    // Génération terminée.
+        Generating,  // Génération de projectile
+        Completed    // prêt à être destroy()
     }
+    //l'état actuele de la machine à état
     private PepperoniState currentState;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        mechantPresent = false;
         currentState = PepperoniState.Waiting;
     }
-
+    //coroutine qui génère un projectile
     private IEnumerator GenererPepperon()
     {
         while (!MainController.MechantVide())
@@ -43,11 +43,6 @@ public class PizzaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (!MainController.MechantVide() && !mechantPresent)
-        //{
-        //    mechantPresent = true;
-        //    StartCoroutine(GenererPepperon());
-        //}
         if(MainController.manche == 3)
         {
             currentState = PepperoniState.Completed;

@@ -8,22 +8,30 @@ using UnityEngine.UIElements;
 
 public class MechantController : MonoBehaviour
 {
+    //vie du mechant
     [SerializeField]
     private float vie;
-
+    //montant d'argent donné au joueur quand le mechant est tué par le joueur
     [SerializeField]
     private float valeur;
-
+    //contient les positions de la map qui indique le chemain à suivre au méchant
     private List<Transform> positions = new List<Transform>();
+    //la dernière position atteinte par le méchant
     private int currentPos;
+    //départ du méchant
     private Transform startPos;
+    //arrivé du mechant
     private Transform endPos;
-
+    //prochaine position du méchant
     private Transform objectif;
+    //gameObject parent de "Pos"
     private GameObject posParent;
+    //gameObject parant de "Position"
     private GameObject positionsGO;
+    //vitesse de déplacement du méchant
     [SerializeField]
     private float vitesse;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -32,6 +40,7 @@ public class MechantController : MonoBehaviour
         //il doit surment avoir une meilleur façon de faire ça mais ça marche, faut juste que les maps soient tous fait de la même manière
         positionsGO = transform.parent.parent.Find("Positions").gameObject;
 
+        //assigne les positions aux variables du script
         foreach (Transform _trans in positionsGO.GetComponentInChildren<Transform>())
         {
             if(_trans.gameObject.name == "Start")
@@ -60,11 +69,18 @@ public class MechantController : MonoBehaviour
         objectif = positions[0].transform;
     }
 
+    /// <summary>
+    /// détruit le méchant
+    /// </summary>
     public void DestroyMechant()
     {
         Destroy(gameObject);
     }
 
+    /// <summary>
+    /// baisse la vie du méchant
+    /// </summary>
+    /// <param name="degat"></param>
     public void BaisserVie(float degat)
     {
         vie -= degat;
@@ -75,6 +91,9 @@ public class MechantController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// obtenir la prochaine position à atteindre pour le méchant
+    /// </summary>
     private void NewObjectif()
     {
         currentPos += 1;
