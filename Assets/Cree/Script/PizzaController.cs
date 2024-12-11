@@ -43,7 +43,7 @@ public class PizzaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(MainController.manche == 3)
+        if(MainController.manche == 11)
         {
             currentState = PepperoniState.Completed;
         }

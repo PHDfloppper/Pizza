@@ -131,6 +131,7 @@ public class MainController : MonoBehaviour
         foreach (var p in tours)
         {
             Destroy(p);
+            Debug.Log("nextcarte");
         }
         tours.RemoveAll(obj => obj == null);
     }
@@ -143,6 +144,7 @@ public class MainController : MonoBehaviour
         vie = 100;
         points = 200;
         manche = 1;
+        Debug.Log("recommencer");
     }
 
     /// <summary>
@@ -159,6 +161,7 @@ public class MainController : MonoBehaviour
         {
             NextCarte();
             prochainNiveau?.Invoke();
+            Debug.Log("nouvellemanche");
         }
     }
 
@@ -178,6 +181,5 @@ public class MainController : MonoBehaviour
             NouvelleManche();
         }
         mechantsCible.RemoveAll(obj => obj == null);
-        Debug.Log(canPlayRound);
     }
 }

@@ -9,6 +9,9 @@ public class EndController : MonoBehaviour
     //unityEvent qui appel la fonction destroy de chaque mechant
     private UnityEvent destroy = new UnityEvent();
 
+    [SerializeField]
+    private GameObject hudFin;
+
     /// <summary>
     /// se déclanche quand un méchant entre dans le collider de End
     /// </summary>
@@ -21,7 +24,8 @@ public class EndController : MonoBehaviour
             MainController.ModifierVie(-1f);
             if(MainController.vie <= 0)
             {
-                MainController.NextCarte();
+                Time.timeScale = 0.0f;
+                hudFin.SetActive(true);
             }
             destroy.RemoveAllListeners();
             destroy.AddListener(mechant.DestroyMechant);
